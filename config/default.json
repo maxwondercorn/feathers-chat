@@ -11,8 +11,7 @@
     "service": "users",
     "entity": "user",
     "secret": "72d5461502f978d28c44dec474ff08",
-    "jwtStrategies": [ "jwt", "local" ],
-    "httpStrategies": [ "jwt" ],
+    "authStrategies": [ "jwt", "local" ],
     "jwtOptions": {
       "header": { "typ": "access" },
       "audience": "https://yourdomain.com",
@@ -23,6 +22,13 @@
     "local": {
       "usernameField": "email",
       "passwordField": "password"
+    },
+    "oauth": {
+      "redirect": "/vanilla",
+      "github": {
+        "key": "<GitHub key>",
+        "secret": "<GitHub secre>"
+      }
     }
   }
 }

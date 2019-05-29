@@ -37,6 +37,10 @@ const loginHTML = `<main class="login container">
         <button type="button" id="signup" class="button button-primary block signup">
           Sign up and log in
         </button>
+
+        <a href="/oauth/github" class="button button-primary block">
+          Log in with GitHub
+        </a>
       </form>
     </div>
   </div>
@@ -137,10 +141,10 @@ const addMessage = message => {
 
 // Show the login page
 const showLogin = (error = {}) => {
-  if(document.querySelectorAll('.login').length) {
+  document.getElementById('app').innerHTML = loginHTML;
+
+  if (error.message) {
     document.querySelector('.heading').insertAdjacentHTML('beforeend', `<p>There was an error: ${error.message}</p>`);
-  } else {
-    document.getElementById('app').innerHTML = loginHTML;
   }
 };
 
